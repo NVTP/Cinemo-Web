@@ -76,22 +76,41 @@ export default function MovieCard({ movie }) {
   );
 
   return (
-    <Card
-      onClick={(e) => {
-        e.preventDefault();
-        router.push(`/home/${movie.id}`);
-      }}
-      sx={{ ':hover': { boxShadow: '3px 3px grey' } }}
-    >
-      <Box sx={{ pt: '100%', position: 'relative' }}>{renderImg}</Box>
+    <Card sx={{ ':hover': { boxShadow: '3px 3px grey' } }}>
+      <Box
+        sx={{ pt: '100%', position: 'relative' }}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push(`/home/${movie.id}`);
+        }}
+      >
+        {renderImg}
+      </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Link color="inherit" underline="hover" variant="subtitle2" noWrap>
+        <Link
+          color="inherit"
+          underline="hover"
+          variant="subtitle2"
+          noWrap
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`/home/${movie.id}`);
+          }}
+        >
           {movie.title_th}({movie.title_en})
         </Link>
         {renderFavorite}
 
-        <Stack direction="column" alignItems="start" justifyContent="space-between">
+        <Stack
+          direction="column"
+          alignItems="start"
+          justifyContent="space-between"
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`/home/${movie.id}`);
+          }}
+        >
           <Label variant="filled" color="info">
             <Typography variant="body1">rating {movie.rating}</Typography>
           </Label>
